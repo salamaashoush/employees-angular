@@ -1,0 +1,13 @@
+<div class="row">
+  <div class="col-md-1" style="margin-top: 20px;">
+    <button (click)="back()" class="btn btn-primary">
+      <span class="glyphicon glyphicon-chevron-left"></span>
+    </button>
+  </div>
+  <div class="col-md-11" [attr.data-test]="'title'">
+    <h1>{{ title }}</h1>
+  </div>
+</div>
+<div [@routeAnimations]="prepareRoute(outlet)">
+  <router-outlet #outlet="outlet"></router-outlet>
+</div>

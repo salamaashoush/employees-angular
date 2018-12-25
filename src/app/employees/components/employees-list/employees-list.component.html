@@ -1,0 +1,28 @@
+<div style="top:120px;">
+  <table class="table table-hover">
+    <tr>
+      <th>Photo</th>
+      <th>Name</th>
+      <th>Title</th>
+      <th>Details</th>
+    </tr>
+    <tr *ngFor="let employee of employees" [attr.data-test]="'employees'">
+      <td><img src="/assets/photos/{{ employee.picture }}" width="50px" /></td>
+      <td [attr.data-test]="'employee-name-' + employee.id">
+        {{ employee.firstName }} {{ employee.lastName }}
+      </td>
+      <td [attr.data-test]="'employee-title-' + employee.id">
+        {{ employee.title }}
+      </td>
+      <td>
+        <button
+          (click)="details.emit({ employeeId: employee.id })"
+          class="btn btn-primary"
+        >
+          <span class="badge">{{ employee.reports }}</span>
+          <span class="glyphicon glyphicon-chevron-right"></span>
+        </button>
+      </td>
+    </tr>
+  </table>
+</div>

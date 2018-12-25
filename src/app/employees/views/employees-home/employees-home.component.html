@@ -1,0 +1,13 @@
+<h1>Employee Directory</h1>
+<div class="form-group">
+  <input
+    [(ngModel)]="query"
+    type="search"
+    placeholder="search"
+    class="form-control"
+  />
+</div>
+<app-employees-list
+  [employees]="getEmployees()"
+  (details)="navigateToEmployee($event)"
+></app-employees-list>
