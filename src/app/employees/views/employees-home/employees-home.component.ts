@@ -21,13 +21,11 @@ export class EmployeesHomeComponent implements OnInit {
     this.router.navigate(['/employees', employeeId]);
   }
   getEmployees(): Employee[] {
-    return this.employees.filter(
-      emp =>
-        `${emp.firstName} ${emp.lastName} ${emp.title} ${emp.department} ${
-          emp.city
-        } ${emp.email}`
-          .toLowerCase()
-          .indexOf(this.query.toLowerCase()) !== -1
+    // concatenate {firstName,lastName,title} employee props in one string and search in it for the query
+    return this.employees.filter(emp =>
+      `${emp.firstName} ${emp.lastName} ${emp.title}`
+        .toLowerCase()
+        .includes(this.query.toLowerCase())
     );
   }
 }
